@@ -22,7 +22,43 @@ namespace Array_basics
 			Console.WriteLine("3 - for finding minimus element in array");
 			Console.WriteLine("0 - to end work with array");
 		}
-	
+		
+		public static void findSumm(int[] data)
+		{
+			int summ = 0;
+			for(int i = 0; i < data.Length; i++)
+			{
+				summ += data[i];
+			}
+			Console.WriteLine(summ);
+		}
+		
+		public static void findMax(int[] data) 
+		{
+			int maximum = Int32.MinValue;
+			for(int i = 0; i < data.Length; i++)
+			{
+				if(data[i] > maximum) 
+				{
+					maximum = data[i];
+				}
+			}
+			Console.WriteLine(maximum);
+		}
+		
+		public static void findMin(int[] data)
+		{
+			int minimum = Int32.MaxValue;
+			for(int i = 0; i < data.Length; i++)
+			{
+				if(data[i] < minimum)
+				{
+					minimum = data[i];
+				}
+			}
+			Console.WriteLine(minimum);
+		}
+		
 		public static void Main(string[] args)
 		{
 			Console.WriteLine("Type integer number for length of array of integers");
@@ -39,27 +75,22 @@ namespace Array_basics
 			int command = -1;
 			while(command != 0) 
 			{	
-				//Input filtration cycle (not implemented yet)				
-				while(command < 0 || command > 3) //Warning, magic numbers detected
-				{
-					userInfo();
-					//Problem, user can type invalid input that will crash application
-					command = Convert.ToInt32(Console.ReadLine());
-				}
-				
+				userInfo();
+				//Problem, user can type invalid input that will crash application
+				command = Convert.ToInt32(Console.ReadLine());
+
 				switch(command)
 				{
 					case 1:
-						//Do something
+						findSumm(numbers);
 						break;
 					case 2:
-						//Do another thing
+						findMax(numbers);
 						break;
 					case 3:
-						//Do third thing
+						findMin(numbers);
 						break;
 					default:
-						//Exit program. Command is 0 due to input filtration (not implemented yet)
 						break;
 				}
 			}
