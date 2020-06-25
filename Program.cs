@@ -24,6 +24,16 @@ namespace Array_basics
 		public static void Main(string[] args)
 		{
 			bool canWork = true;
+			
+			Console.WriteLine("Type length for array");
+			int size = Convert.ToInt32(Console.ReadLine());
+			int[] numbers = new int[size];
+			for(int i = 0; i < size; i++)
+			{
+				Console.WriteLine("Type {0} element of array", i+1);
+				numbers[i] = Convert.ToInt32(Console.ReadLine());
+			}
+			
 			while(!canWork) 
 			{
 				//Used so many actions may be performed with array
