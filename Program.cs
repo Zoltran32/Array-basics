@@ -9,17 +9,29 @@
 using System;
 
 namespace Array_basics
-{
+{	
 	class Program
 	{
+		public static void userInfo()
+		{
+			Console.WriteLine("Type command for action with array of int, that has some elements");
+			Console.WriteLine("1 - for counting summ of integers in array");
+			Console.WriteLine("2 - for finding maximum element in array");
+			Console.WriteLine("3 - for finding minimus element in array");
+			Console.WriteLine("0 - to end work with array");
+		}
+	
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
-			
-			// TODO: Implement Functionality Here
-			
-			Console.Write("Press any key to continue . . . ");
-			Console.ReadKey(true);
-		}
+			bool canWork = true;
+			while(!canWork) 
+			{
+				//Used so many actions may be performed with array
+				//Not implemented any functionality yet				
+			}
+			userInfo();
+			Console.WriteLine("Press any key to exit");
+			Console.ReadKey();
+		}		
 	}
 }
