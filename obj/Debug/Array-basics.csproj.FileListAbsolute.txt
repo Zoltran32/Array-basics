@@ -1,0 +1,5 @@
+C:\c# learn\Array-basics\bin\Debug\Array-basics.exe
+C:\c# learn\Array-basics\bin\Debug\Array-basics.pdb
+C:\c# learn\Array-basics\obj\Debug\Array-basics.csprojResolveAssemblyReference.cache
+C:\c# learn\Array-basics\obj\Debug\Array-basics.exe
+C:\c# learn\Array-basics\obj\Debug\Array-basics.pdb
