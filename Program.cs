@@ -12,18 +12,32 @@ namespace Array_basics
 {	
 	class Program
 	{
-		public static void userInfo() 
+		public static int ReadInt()
+		{
+			int result = 0;
+			while(int.TryParse(Console.ReadLine(), out result) == false)
+			{
+				Console.WriteLine("That is not a number");
+			}
+			return result;
+		}
+		
+		public static void userInfo()	
 		{
 			//Doesn't look as good design because adding new commands can be complicated
 			//Also, there is a text typing format for console output
-			Console.WriteLine("Type command for action with array of int, that has some elements");
+			Console.WriteLine("Type integer number for command");
+			Console.WriteLine("Command make action with array of int, that has some elements");
+			Console.WriteLine("Possible actions are this");
 			Console.WriteLine("1 - for counting summ of integers in array");
 			Console.WriteLine("2 - for finding maximum element in array");
-			Console.WriteLine("3 - for finding minimus element in array");
+			Console.WriteLine("3 - for finding minimum element in array");
+			Console.WriteLine("4 - for printing on console all elements in array");
 			Console.WriteLine("0 - to end work with array");
+			Console.WriteLine("Any other numbers are skipped");
 		}
 		
-		public static void findSumm(int[] data)
+		public static void GetSumm(int[] data)
 		{
 			int summ = 0;
 			for(int i = 0; i < data.Length; i++)
@@ -33,7 +47,7 @@ namespace Array_basics
 			Console.WriteLine(summ);
 		}
 		
-		public static void findMax(int[] data) 
+		public static void GetMax(int[] data) 
 		{
 			int maximum = Int32.MinValue;
 			for(int i = 0; i < data.Length; i++)
@@ -46,7 +60,7 @@ namespace Array_basics
 			Console.WriteLine(maximum);
 		}
 		
-		public static void findMin(int[] data)
+		public static void GetMin(int[] data)
 		{
 			int minimum = Int32.MaxValue;
 			for(int i = 0; i < data.Length; i++)
@@ -59,36 +73,53 @@ namespace Array_basics
 			Console.WriteLine(minimum);
 		}
 		
+		public static void Print(int[] data)
+		{
+			for(int i = 0; i < data.Length; i++)
+			{
+				Console.WriteLine(data[i]);
+			}
+		}
+		
 		public static void Main(string[] args)
 		{
-			Console.WriteLine("Type integer number for length of array of integers");
-			//Problem, user can type invalid input that will crash application
-			int size = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine("Type positive integer number for length of array of integers");
+			int size = -1;
+			while(size <= 0)
+			{
+				size = ReadInt();
+				if(size <= 0)
+				{
+					Console.WriteLine("Array size can only be positive");
+				}					
+			}
+			
 			int[] numbers = new int[size];
 			for(int i = 0; i < size; i++)
 			{
-				Console.WriteLine("Type element numbers[{0}] of array", i+1);
-				//Problem, user can type invalid input that will crash application				
-				numbers[i] = Convert.ToInt32(Console.ReadLine());
+				Console.WriteLine("Type element numbers[{0}] of array", i+1);				
+				numbers[i] = ReadInt();
 			}
 			
 			int command = -1;
 			while(command != 0) 
 			{	
 				userInfo();
-				//Problem, user can type invalid input that will crash application
-				command = Convert.ToInt32(Console.ReadLine());
+				command = ReadInt();
 
 				switch(command)
 				{
 					case 1:
-						findSumm(numbers);
+						GetSumm(numbers);
 						break;
 					case 2:
-						findMax(numbers);
+						GetMax(numbers);
 						break;
 					case 3:
-						findMin(numbers);
+						GetMin(numbers);
+						break;
+					case 4:
+						Print(numbers);
 						break;
 					default:
 						break;
